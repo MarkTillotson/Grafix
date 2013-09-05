@@ -10,11 +10,20 @@ class GrafCommsSPI : public GrafComms
 
   void  begin (byte power, byte reset, byte dc, byte cs) ;
 
+  void  resetChip () ;
+
   void  wr_comm (byte reg) ;
   void  wr_data (byte data) ;
   byte  rd_data () ;
+  void  wr_data_16 (unsigned int data) ;
+  void  wr_data_16xN (unsigned int data, byte count) ;
+  unsigned int  rd_data_16 () ;
+
+  unsigned int  read_reg (byte reg) ;
+  void  write_reg (byte reg, unsigned int val) ;
   void  gen_start_ram (byte ram_comm) ;
   void  write_ram (unsigned int val) ;
+  void  start_ram () ;
   void  stop_ram () ;
 
  protected:

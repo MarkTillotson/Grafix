@@ -160,7 +160,7 @@ void GrafChip_ILI9320::init_regs (byte orient)
 
   _comms.write_reg (0x12, 0x013E) ; delay (50) ;
 
-  _comms.write_reg (0x13, 0x1A00) ;
+  _comms.write_reg (0x13, 26 << 8) ;  // was 26
   _comms.write_reg (0x29, 0x000F) ; delay (50) ;
 
   _comms.write_reg (0x20, 0x0000) ;
@@ -177,18 +177,29 @@ void GrafChip_ILI9320::init_regs (byte orient)
   _comms.write_reg (0x90, 0x0010) ;
   _comms.write_reg (0x92, 0x0000) ;
   _comms.write_reg (0x93, 0x0000) ;
-
+  
+  _comms.write_reg (0x30, 0x0505) ;
+  _comms.write_reg (0x31, 0x0505) ;
+  _comms.write_reg (0x32, 0x0505) ;
+  _comms.write_reg (0x35, 0x0404) ;
+  _comms.write_reg (0x36, 0x001F) ;
+  _comms.write_reg (0x37, 0x0505) ;
+  _comms.write_reg (0x38, 0x0505) ;
+  _comms.write_reg (0x39, 0x0505) ;
+  _comms.write_reg (0x3C, 0x0404) ;
+  _comms.write_reg (0x3D, 0x1F10) ;
+  /*
   _comms.write_reg (0x30, 0x0507) ;
   _comms.write_reg (0x31, 0x0404) ;
   _comms.write_reg (0x32, 0x0205) ;
-  _comms.write_reg (0x35, 0x0707) ;
-  _comms.write_reg (0x36, 0x0000) ;
+  _comms.write_reg (0x35, 0x0000) ;
+  _comms.write_reg (0x36, 0x1517) ;
   _comms.write_reg (0x37, 0x0507) ;
   _comms.write_reg (0x38, 0x0404) ;
   _comms.write_reg (0x39, 0x0205) ;
-  _comms.write_reg (0x3C, 0x0707) ;
-  _comms.write_reg (0x3D, 0x0000) ;
-
+  _comms.write_reg (0x3C, 0x0000) ;
+  _comms.write_reg (0x3D, 0x1517) ;
+  */
   _comms.write_reg (0x07, 0x0173) ; delay (50) ;
 }
 
