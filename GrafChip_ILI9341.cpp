@@ -105,7 +105,7 @@ void  GrafChip_ILI9341::fast_fill (int x0, int y0, int x1, int y1, int foregroun
   _comms.wr_data_16 (x1) ;
   _comms.write_reg (row_comm, y0) ;
   _comms.wr_data_16 (y1) ;
-  unsigned int pixels = (x1-x0+1)*(y1-y0+1) ;
+  unsigned long pixels = ((unsigned long)(x1-x0+1)) * (y1-y0+1) ;
   start_ram () ;
   while (pixels > 255)
   {
@@ -116,6 +116,15 @@ void  GrafChip_ILI9341::fast_fill (int x0, int y0, int x1, int y1, int foregroun
     _comms.wr_data_16xN (foreground, pixels) ;
   _comms.stop_ram () ;
 }
+
+
+void  GrafChip_ILI9341::scroll_to (int x)
+{
+  _comms.wr_comm (0x37) ;
+  _comms.wr_data (x >> 8) ;
+  _comms.wr_data (x & 0xFF) ;
+}  
+
 
 
 void GrafChip_ILI9341::init_regs (byte orient)

@@ -21,6 +21,9 @@ class GrafChip_ILI9341 : public GrafChip
   void  fast_fill (int x0, int y0, int x1, int y1, int foreground) ;
   void  charline (byte line, byte mult, int foreground, int background, int col) ;
 
+  void  scroll_to (int x) ;
+
+
  protected:
   void  init_regs (byte orient) ;
   virtual void  set_gate_scan (byte orient) ;

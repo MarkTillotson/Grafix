@@ -10,4 +10,8 @@ boolean GrafChip::has_fast_fill () { return false ; }
 void  GrafChip::fast_fill (int x0, int y0, int x1, int y1, int foreground)
 {}
 
+void  GrafChip::scroll_to (int x)
+{}
 
+void  GrafChip::dim_to (byte x)
+{}

@@ -27,6 +27,9 @@ class GrafChip
   virtual void  charline (byte data, byte mult, int foreground, int background, int col) = 0 ;
   virtual void  start_ram () = 0 ;
 
+  virtual void  scroll_to (int x) ;
+  virtual void  dim_to (byte x) ;
+
  protected:
   virtual void  init_regs (byte orient) = 0 ;
   GrafComms & _comms ;
